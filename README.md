@@ -1,1 +1,1 @@
-# ccic_IntroToProgramming
+# CCIC_IntroToProgramming
