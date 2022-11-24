@@ -26,7 +26,7 @@ void setup(){
   smooth();
 
   noStroke();
-  fill(0,255,0);
+fill(random(255),random(255),random(255));
 }
 
 void draw(){
@@ -58,19 +58,49 @@ void draw(){
    if(sqs[0][8]==true){
     rect(320,0,40,20);
   }
-  if(sqs[0][8]==true){
+  if(sqs[0][9]==true){
     rect(360,0,40,20);
   }
-   if(sqs[0][9]==true){
-    rect(400,0,40,20);
+    if(sqs[1][0]==true){
+  rect(0,0,40,40);
+}  if(sqs[1][1]==true){
+  rect(40,0,40,40);
   }
+  if(sqs[1][2]==true){
+    rect(80,0,40,40);
+  }
+   if(sqs[1][3]==true){
+    rect(120,0,40,40);
+  }
+   if(sqs[1][4]==true){
+    rect(160,0,40,40);
+  }
+   if(sqs[1][5]==true){
+    rect(200,0,40,40);
+  }
+   if(sqs[1][6]==true){
+    rect(240,0,40,40);
+  }
+   if(sqs[1][7]==true){
+    rect(280,0,40,40);
+  }
+   if(sqs[1][8]==true){
+    rect(320,0,40,40);
+  }
+  if(sqs[1][9]==true){
+    rect(360,0,40,40);
+  }
+ 
   //this is where i start drawing in the shapes and i added a way to lose and made a restart 
+  
  rect(mouseX, 350,100, 15);
+ 
   ellipse(xpos, ypos, cwid, chight);
    xpos += speedx;
   ypos += speedy;
   if(ypos>400){
     background(0);
+    fill(255,255,255);
     textSize(50);
     text("You lost",10,50);
     text("Restart?",100,200);
@@ -85,13 +115,14 @@ void draw(){
   if (ypos < 0 ) {
     speedy *= -1;
   }
-  if(xpos>0&&xpos<39&&ypos<27){
+ 
+  if(xpos>mouseX&&xpos<mouseX+100&&ypos>=350&&ypos<360){
+    speedy*=-1;
+  }
+   if(xpos>0&&xpos<39&&ypos<27&&sqs[0][0]==true){
    
     speedy*=-1;
     sqs[0][0]=false;
-  }
-  if(xpos>mouseX&&xpos<mouseX+100&&ypos>=350&&ypos<360){
-    speedy*=-1;
   }
    if(xpos>40&&xpos<79&&ypos<27&&sqs[0][1]==true){
     speedy*=-1;
@@ -128,6 +159,47 @@ void draw(){
   if(xpos>360&&xpos<400&&ypos<27&&sqs[0][9]==true){
     speedy*=-1;
     br(0,9);
+  }
+     if(xpos>0&&xpos<39&&ypos<47&&sqs[1][0]==true){
+   
+    speedy*=-1;
+    sqs[1][0]=false;
+  }
+   if(xpos>40&&xpos<79&&ypos<47&&sqs[1][1]==true){
+    speedy*=-1;
+    sqs[1][1]=false;
+  }
+  if(xpos>80&&xpos<119&&ypos<47&&sqs[1][2]==true){
+    speedy*=-1;
+    br(1,2);
+  }
+  if(xpos>120&&xpos<159&&ypos<47&&sqs[1][3]==true){
+    speedy*=-1;
+    br(1,3);
+  }
+  if(xpos>160&&xpos<199&&ypos<47&&sqs[1][4]==true){
+    speedy*=-1;
+    br(1,4);
+  }
+  if(xpos>200&&xpos<239&&ypos<47&&sqs[1][5]==true){
+    speedy*=-1;
+    br(1,5);
+  }
+  if(xpos>240&&xpos<279&&ypos<47&&sqs[1][6]==true){
+    speedy*=-1;
+    br(1,6);
+  }
+  if(xpos>280&&xpos<319&&ypos<47&&sqs[1][7]==true){
+    speedy*=-1;
+    br(1,7);
+  }
+  if(xpos>320&&xpos<359&&ypos<47&&sqs[1][8]==true){
+    speedy*=-1;
+    br(1,8);
+  }
+  if(xpos>360&&xpos<400&&ypos<47&&sqs[1][9]==true){
+    speedy*=-1;
+    br(1,9);
   }
   }
   //i made this just to make things go faster 
