@@ -24,7 +24,7 @@ void setup(){
   //im useing smooth and nostroke just so it looks a bit nicer 
  size (400,400);
   smooth();
-
+mouseX=155;
   noStroke();
 fill(random(255),random(255),random(255));
 }
@@ -101,10 +101,10 @@ void draw(){
   if(ypos>400){
     background(0);
     fill(255,255,255);
-    textSize(50);
+    textSize(45);
     text("You lost",10,50);
-    text("Restart?",100,200);
-    
+    text("Restart? Press Up",0,200);
+     text("^ our click here",0,300);
   }
   /*this is how im doing all the colishion if the ball hits anywhere inbetween to points it will bounce off and set
   set the matrix location to false so that area no longer has colishion*/
@@ -210,7 +210,7 @@ void br(int n1,int n2){
 void mouseClicked(){
   //print is not staying its just nice for making things 
   println("y"+mouseY+" X"+mouseX);
-  if(mouseX>=100&&mouseY>=164&&mouseX<291&&mouseY<202&&ypos>400){
+  if(mouseX>=0&&mouseY>=164&&mouseX<160&&mouseY<202&&ypos>400){
     redraw();
 while(w<10){
   sqs[w][g]=true;
@@ -226,4 +226,27 @@ while(w<10){
     g=0;
     w=0;
   }
+}
+void keyPressed(){
+  if(keyCode==LEFT&&mouseX>0){
+    mouseX=mouseX-8;
+  }
+  if(keyCode==RIGHT&&mouseX<300){
+    mouseX=mouseX+8;
+  }
+  if(keyCode==UP&&ypos>400){
+      redraw();
+while(w<10){
+  sqs[w][g]=true;
+  g=g+1;
+  if(g==10){
+    g=0;
+    w=w+1;
+  }
+    
+}
+ ypos=200;
+    xpos=200;
+    g=0;
+    w=0;  }
 }
