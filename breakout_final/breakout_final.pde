@@ -18,20 +18,28 @@ float cwid=15;
 float speedx=2;
 float speedy=1;
 float chight=15;
-
-
+int score=0;
+boolean start=false;
 void setup(){
   //im useing smooth and nostroke just so it looks a bit nicer 
  size (400,400);
   smooth();
 mouseX=155;
   noStroke();
-fill(random(255),random(255),random(255));
+
 }
 
 void draw(){
   //these if statments will make it so the bricks are only drawn if they have not been hit
    background(0);
+   if(start==false){
+   fill(0, 255, 0);
+   textSize(45);
+   text("Very boring game",0,100);
+   text("Start",150,200);
+   }
+   if(start==true){
+    
    if(sqs[0][0]==true){
   rect(0,0,40,20);
 }  if(sqs[0][1]==true){
@@ -92,9 +100,10 @@ void draw(){
   }
  
   //this is where i start drawing in the shapes and i added a way to lose and made a restart 
-  
- rect(mouseX, 350,100, 15);
- 
+    
+ rect(mouseX, 350,100, 15,20);
+ textSize(20);
+ text(score,0,400);
   ellipse(xpos, ypos, cwid, chight);
    xpos += speedx;
   ypos += speedy;
@@ -120,88 +129,107 @@ void draw(){
     speedy*=-1;
   }
    if(xpos>0&&xpos<39&&ypos<27&&sqs[0][0]==true){
-   
+   score=score+100;
     speedy*=-1;
     sqs[0][0]=false;
   }
    if(xpos>40&&xpos<79&&ypos<27&&sqs[0][1]==true){
     speedy*=-1;
     sqs[0][1]=false;
+    score=score+100;
   }
   if(xpos>80&&xpos<119&&ypos<27&&sqs[0][2]==true){
     speedy*=-1;
     br(0,2);
+    score=score+100;
   }
   if(xpos>120&&xpos<159&&ypos<27&&sqs[0][3]==true){
     speedy*=-1;
     br(0,3);
+    score=score+100;
   }
   if(xpos>160&&xpos<199&&ypos<27&&sqs[0][4]==true){
     speedy*=-1;
     br(0,4);
+    score=score+100;
   }
   if(xpos>200&&xpos<239&&ypos<27&&sqs[0][5]==true){
     speedy*=-1;
     br(0,5);
+    score=score+100;
   }
   if(xpos>240&&xpos<279&&ypos<27&&sqs[0][6]==true){
     speedy*=-1;
     br(0,6);
+    score=score+100;
   }
   if(xpos>280&&xpos<319&&ypos<27&&sqs[0][7]==true){
     speedy*=-1;
     br(0,7);
+    score=score+100;
   }
   if(xpos>320&&xpos<359&&ypos<27&&sqs[0][8]==true){
     speedy*=-1;
     br(0,8);
+    score=score+100;
   }
   if(xpos>360&&xpos<400&&ypos<27&&sqs[0][9]==true){
     speedy*=-1;
     br(0,9);
+    score=score+100;
   }
      if(xpos>0&&xpos<39&&ypos<47&&sqs[1][0]==true){
-   
+   score=score+100;
     speedy*=-1;
     sqs[1][0]=false;
   }
    if(xpos>40&&xpos<79&&ypos<47&&sqs[1][1]==true){
     speedy*=-1;
     sqs[1][1]=false;
+    score=score+100;
   }
   if(xpos>80&&xpos<119&&ypos<47&&sqs[1][2]==true){
     speedy*=-1;
     br(1,2);
+    score=score+100;
   }
   if(xpos>120&&xpos<159&&ypos<47&&sqs[1][3]==true){
     speedy*=-1;
     br(1,3);
+    score=score+100;
   }
   if(xpos>160&&xpos<199&&ypos<47&&sqs[1][4]==true){
     speedy*=-1;
     br(1,4);
+    score=score+100;
   }
   if(xpos>200&&xpos<239&&ypos<47&&sqs[1][5]==true){
     speedy*=-1;
     br(1,5);
+    score=score+100;
   }
   if(xpos>240&&xpos<279&&ypos<47&&sqs[1][6]==true){
     speedy*=-1;
     br(1,6);
+    score=score+100;
   }
   if(xpos>280&&xpos<319&&ypos<47&&sqs[1][7]==true){
     speedy*=-1;
     br(1,7);
+    score=score+100;
   }
   if(xpos>320&&xpos<359&&ypos<47&&sqs[1][8]==true){
     speedy*=-1;
     br(1,8);
+    score=score+100;
   }
   if(xpos>360&&xpos<400&&ypos<47&&sqs[1][9]==true){
     speedy*=-1;
     br(1,9);
+    score=score+100;
   }
   }
+}
   //i made this just to make things go faster 
 void br(int n1,int n2){
   sqs[n1][n2]=false;
@@ -220,11 +248,15 @@ while(w<10){
     w=w+1;
   }
 }
-  
+  score=0;
     ypos=200;
     xpos=200;
     g=0;
     w=0;
+  }
+  if(mouseX>=140&&mouseY>=160&&mouseX<258&&mouseY<203&&start==false){
+    start=true;
+    redraw();
   }
 }
 void keyPressed(){
@@ -245,6 +277,7 @@ while(w<10){
   }
     
 }
+score=0;
  ypos=200;
     xpos=200;
     g=0;
